@@ -1,0 +1,32 @@
+name: flutter_app
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/maggi_goreng.jpg
+    - assets/nasi_goreng.jpeg
+    - assets/sandwich_telur.jpg
+    - assets/chef.jpg
+    - assets/selangor.jpg
+    - assets/pahang.png
+    - assets/johor.jpg
+    - assets/perak.jpg
+
