@@ -1,1 +1,0 @@
-alamak tak tau nak buat apa do
