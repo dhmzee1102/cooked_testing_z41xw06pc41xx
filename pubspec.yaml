@@ -6,12 +6,16 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.27.0
+  cloud_firestore: ^4.15.8
+  cached_network_image: ^3.3.1 # For efficient image loading from URLs
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -29,4 +33,3 @@ flutter:
     - assets/pahang.png
     - assets/johor.jpg
     - assets/perak.jpg
-

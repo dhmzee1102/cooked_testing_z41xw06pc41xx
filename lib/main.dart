@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'pages/home_page.dart';
-import 'pages/recipe_detail_page.dart';
 import 'pages/favorites_page.dart';
 import 'pages/search_page.dart';
 import 'pages/settings_page.dart';
 
-void main() {
+void main() async {
+  // Ensure that Flutter bindings are initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Manually initialize Firebase with your configuration
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAHMNkK9po-Q6pdtqYIvfmNitZbey5PA2A", // Replace with your new key
+      authDomain: "app-cooking-83d75.firebaseapp.com",
+      projectId: "app-cooking-83d75",
+      storageBucket: "app-cooking-83d75.appspot.com", // Corrected domain
+      messagingSenderId: "966214941981",
+      appId: "1:966214941981:web:602e0a5a5473dd18eef5f4",
+      measurementId: "G-9LP25P1YLP",
+    ),
+  );
   runApp(const RecipeApp());
 }
 

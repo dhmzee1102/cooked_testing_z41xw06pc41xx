@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../models/recipe.dart';
 import 'recipe_detail_page.dart';
@@ -12,38 +14,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String selectedCategory = 'All';
   final List<String> categories = ['All', 'Dinner', 'Lunch', 'Breakfast'];
-
-  final List<Recipe> recipes = [
-    Recipe(
-      name: 'Maggi Goreng',
-      calories: 140,
-      duration: 25,
-      rating: 4.5,
-      reviews: 20,
-      image: 'assets/maggi_goreng.jpg', // ✅ make sure your path matches
-      isFavorite: true,
-      ingredients: [
-        Ingredient(name: 'Maggi Noodles', quantity: '2 packets', icon: '🍜'),
-        Ingredient(name: 'Eggs', quantity: '2', icon: '🥚'),
-        Ingredient(name: 'Vegetables', quantity: '100g', icon: '🥬'),
-      ],
-    ),
-    Recipe(
-      name: 'Nasi Goreng Telur',
-      calories: 140,
-      duration: 25,
-      rating: 4.5,
-      reviews: 20,
-      image: 'assets/nasi_goreng.jpeg', // ✅ corrected path
-      isFavorite: false,
-      ingredients: [
-        Ingredient(name: 'Rice', quantity: '250g', icon: '🍚'),
-        Ingredient(name: 'Eggs', quantity: '2', icon: '🥚'),
-      ],
-    ),
-  ];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -254,27 +224,51 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 15),
                 SizedBox(
                   height: 220,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: recipes.length,
-                    itemBuilder: (context, index) {
-                      return RecipeCard(
-                        recipe: recipes[index],
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RecipeDetailPage(
-                                recipe: recipes[index],
-                              ),
-                            ),
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance.collection('recipe').snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                      if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                        return const Center(child: Text('No recipes found.'));
+                      }
+                      if (snapshot.hasError) {
+                        return const Center(child: Text('Something went wrong.'));
+                      }
+
+                      final recipes = snapshot.data!.docs.map((doc) => Recipe.fromFirestore(doc)).toList();
+
+                      return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: recipes.length,
+                        itemBuilder: (context, index) {
+                          final recipe = recipes[index];
+                          return RecipeCard(
+                            recipe: recipe,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RecipeDetailPage(
+                                    recipeId: recipe.id,
+                                  ),
+                                ),
+                              );
+                            },
+                            onFavoriteToggle: () {
+                              // Update the favorite status in Firestore
+                              final docRef = FirebaseFirestore.instance
+                                  .collection('recipe')
+                                  .doc(recipe.id);
+                              docRef.update({'isFavorite': !recipe.isFavorite});
+
+                              // Also update the local state for immediate UI feedback
+                              setState(() {
+                                recipe.isFavorite = !recipe.isFavorite;
+                              });
+                            },
                           );
-                        },
-                        onFavoriteToggle: () {
-                          setState(() {
-                            recipes[index].isFavorite =
-                                !recipes[index].isFavorite;
-                          });
                         },
                       );
                     },
@@ -331,7 +325,7 @@ class RecipeCard extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.asset(
-                    recipe.image,
+                    recipe.imageUrl, // Now an asset path
                     height: 140,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -429,4 +423,3 @@ class RecipeCard extends StatelessWidget {
     );
   }
 }
-
