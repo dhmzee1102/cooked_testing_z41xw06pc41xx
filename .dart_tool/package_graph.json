@@ -10,10 +10,15 @@
         "cached_network_image",
         "cloud_firestore",
         "cupertino_icons",
+<<<<<<< HEAD
         "firebase_core",
         "flutter",
         "http",
         "shimmer"
+=======
+        "flutter",
+        "http"
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       ],
       "devDependencies": [
         "flutter_lints",
@@ -463,18 +468,42 @@
       "dependencies": []
     },
     {
+<<<<<<< HEAD
       "name": "fixnum",
+=======
+      "name": "http",
+      "version": "1.6.0",
+      "dependencies": [
+        "async",
+        "http_parser",
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "web",
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       "version": "1.1.1",
       "dependencies": []
     },
     {
+<<<<<<< HEAD
       "name": "crypto",
       "version": "3.0.7",
       "dependencies": [
+=======
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
         "typed_data"
       ]
     },
     {
+<<<<<<< HEAD
       "name": "sqflite_common",
       "version": "2.5.6",
       "dependencies": [
@@ -582,6 +611,12 @@
       "dependencies": [
         "meta",
         "path"
+=======
+      "name": "typed_data",
+      "version": "1.4.0",
+      "dependencies": [
+        "collection"
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       ]
     }
   ],

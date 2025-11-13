@@ -152,6 +152,7 @@
       "languageVersion": "3.8"
     },
     {
+<<<<<<< HEAD
       "name": "flutter_web_plugins",
       "rootUri": "file:///C:/Users/Nik%20Hamzee/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
@@ -160,6 +161,10 @@
     {
       "name": "http",
       "rootUri": "file:///C:/Users/Nik%20Hamzee/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.5.0",
+=======
+      "name": "http",
+      "rootUri": "file:///C:/Users/Nik%20Hamzee/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.6.0",
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -368,12 +373,15 @@
       "languageVersion": "3.5"
     },
     {
+<<<<<<< HEAD
       "name": "uuid",
       "rootUri": "file:///C:/Users/Nik%20Hamzee/AppData/Local/Pub/Cache/hosted/pub.dev/uuid-4.5.2",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
+=======
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       "name": "vector_math",
       "rootUri": "file:///C:/Users/Nik%20Hamzee/AppData/Local/Pub/Cache/hosted/pub.dev/vector_math-2.2.0",
       "packageUri": "lib/",
@@ -392,12 +400,15 @@
       "languageVersion": "3.4"
     },
     {
+<<<<<<< HEAD
       "name": "xdg_directories",
       "rootUri": "file:///C:/Users/Nik%20Hamzee/AppData/Local/Pub/Cache/hosted/pub.dev/xdg_directories-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
+=======
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
       "name": "flutter_app",
       "rootUri": "../",
       "packageUri": "lib/",
