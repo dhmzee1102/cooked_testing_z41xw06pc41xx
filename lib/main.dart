@@ -4,6 +4,7 @@ import 'pages/home_page.dart';
 import 'pages/favorites_page.dart';
 import 'pages/search_page.dart';
 import 'pages/settings_page.dart';
+import 'package:http/http.dart' as http;
 
 void main() async {
   // Ensure that Flutter bindings are initialized
