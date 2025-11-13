@@ -195,19 +195,29 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
+=======
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
   http:
     dependency: "direct main"
     description:
       name: http
+<<<<<<< HEAD
       sha256: bb2ce4590bc2667c96f318d68cac1b5a7987ec819351d32b1c987239a815e007
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0"
+=======
+      sha256: "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.0"
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
   http_parser:
     dependency: transitive
     description:
@@ -477,6 +487,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+<<<<<<< HEAD
   uuid:
     dependency: transitive
     description:
@@ -485,6 +496,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.2"
+=======
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
   vector_math:
     dependency: transitive
     description:
@@ -509,6 +522,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+<<<<<<< HEAD
   xdg_directories:
     dependency: transitive
     description:
@@ -517,6 +531,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+=======
+>>>>>>> 9779fa34650adba92605c374e3c14ab8b32f319b
 sdks:
   dart: ">=3.9.0 <4.0.0"
   flutter: ">=3.35.0"
